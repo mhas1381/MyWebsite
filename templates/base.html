@@ -1,6 +1,7 @@
 {% load static %}
 <!doctype html>
 <html lang="en">
+
 <head>
     <!-- Meta -->
     <meta charset="UTF-8">
@@ -12,10 +13,11 @@
 
     <!-- Title -->
     <title> سایت شخصي من</title>
-    
+
     <!-- Font Google -->
     <link href="https://fonts.googleapis.com/css?family=Muli:300,400,500,600,700,800,900&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@200;300;400;500;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@200;300;400;500;700;800;900&display=swap"
+        rel="stylesheet">
 
     <!-- CSS Plugins -->
     <link rel="stylesheet" href="{% static 'css/all.css' %}">
@@ -39,65 +41,36 @@
         <div class="container-fluid">
             <!--logo-->
             <div class="logo">
-                <a href="index.html">
+                <a href="{% url 'website:index' %}">
                     <img src="{% static 'img/logo-dark.png' %}" alt="" class="logo-dark">
                     <img src="{% static 'img/logo-white.png' %}" alt="" class="logo-white">
                 </a>
             </div>
             <!--/-->
-    
+
             <!--navbar-collapse-->
             <div class="collapse navbar-collapse" id="main_nav">
                 <ul class="navbar-nav ml-auto mr-auto">
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle active" href="index.html" data-toggle="dropdown"> خانه </a>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'website:index' %}"> خانه</a>
                     </li>
-    
-    
-                    <li class="nav-item dropdown">
-                        <a class="nav-link  dropdown-toggle" href="blog-grid.html" data-toggle="dropdown"> وبلاگ</a>
-                        <ul class="dropdown-menu fade-up">
-                            <li>
-                                <a class="dropdown-item" href="{% url 'blog:index' %}"> وبلاگ به صورت کاشی</a>
-                            </li>
-                            <li>
-                                <a class="dropdown-item" href="blog-masonry.html"> مدونة masonry </a>
-                            </li>
-                            <li>
-                                <a class="dropdown-item " href="blog-list.html"> مدونة list </a>
-                            </li>
-                        </ul>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'blog:index' %}"> وبلاگ</a>
                     </li>
-                    
-    
-                    <li class="nav-item dropdown">
-                        <a class="nav-link  dropdown-toggle" href="#" data-toggle="dropdown">صفحات </a>
-                        <ul class="dropdown-menu fade-up">
-                            <li>
-                                <a class="dropdown-item" href="about.html"> نبذة عنا </a>
-                            </li>
-                            <li>
-                                <a class="dropdown-item" href="author.html"> الكاتب </a>
-                            </li>
-                            <li>
-                                <a class="dropdown-item" href="login.html"> تسجيل الدخول </a>
-                            </li>
-                            <li>
-                                <a class="dropdown-item " href="register.html"> اشتراك </a>
-                            </li>
-                            <li>
-                                <a class="dropdown-item " href="page404.html"> صفحة 404 </a>
-                            </li>
-                        </ul>
+
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'website:contact' %}"> ارتباط با ما</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="contact.html"> ارتباط با ما</a>
+                        <a class="nav-link" href="contact.html"> ورود به سایت</a>
                     </li>
-    
                 </ul>
             </div>
             <!--/-->
-    
+
             <!--navbar-right-->
             <div class="navbar-right ml-auto">
                 <div class="theme-switch-wrapper">
@@ -106,7 +79,7 @@
                         <div class="slider round"></div>
                     </label>
                 </div>
-    
+
                 <div class="social-icones">
                     <ul class="list-inline">
                         <li>
@@ -131,21 +104,22 @@
                         </li>
                     </ul>
                 </div>
-    
+
                 <div class="search-icon">
                     <i class="icon_search"></i>
                 </div>
-    
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main_nav" aria-expanded="false" aria-label="Toggle navigation">
+
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main_nav"
+                    aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
             </div>
         </div>
     </nav>
     <!--/-->
-{% block content %}
+    {% block content %}
 
-{% endblock %}
+    {% endblock %}
     <!--newslettre-->
     <section class="newslettre">
         <div class="container-fluid">
@@ -157,7 +131,8 @@
                 <form action="#" class="newslettre-form">
                     <div class="form-flex">
                         <div class="form-group">
-                            <input type="email" class="form-control" placeholder="ایمیل خود را وارد کنید" required="required">
+                            <input type="email" class="form-control" placeholder="ایمیل خود را وارد کنید"
+                                required="required">
                         </div>
                         <button class="submit-btn" type="submit">اشتراک</button>
                     </div>
@@ -185,15 +160,16 @@
             </div>
         </div>
     </section>
-    
+
     <!--footer-->
     <footer class="footer">
         <div class="container-fluid">
             <div class="row">
                 <div class="col-lg-12">
                     <div class="copyright">
-                        <p> ©  2021
-                            <a href="#"></a>تمام حقوق محفوظ است </p>
+                        <p> © 2021
+                            <a href="#"></a>تمام حقوق محفوظ است
+                        </p>
                     </div>
                     <div class="back">
                         <a href="#" class="back-top">
@@ -204,7 +180,7 @@
             </div>
         </div>
     </footer>
-    
+
     <!--Search-->
     <div class="search">
         <div class="container-fluid">
@@ -213,15 +189,15 @@
                     <i class="icon_close"></i>
                 </button>
                 <form class="search-form " action="#">
-                    <input type="search" value="" placeholder="ما الذي تبحث عنه؟">
-                    <button type="submit" class="search-btn">بحت</button>
+                    <input type="search" value="" placeholder="دنبال چه چیزی میگردی؟">
+                    <button type="submit" class="search-btn">بگرد</button>
                 </form>
             </div>
         </div>
     </div>
     <!--/-->
 
-    
+
 
     <!-- jQuery first, then Popper.js' %}, then Bootstrap JS -->
     <script src="{% static 'js/jquery-3.5.0.min.js' %}"></script>
@@ -232,9 +208,10 @@
     <script src="{% static 'js/ajax-contact.js' %}"></script>
     <script src="{% static 'js/owl.carousel.min.js' %}"></script>
     <script src="{% static 'js/switch.js' %}"></script>
-    
+
     <!-- JS main  -->
     <script src="{% static 'js/main.js' %}"></script>
 
 </body>
+
 </html>
