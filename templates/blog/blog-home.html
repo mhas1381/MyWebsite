@@ -29,6 +29,7 @@
             <div class="row">
                 <div class="col-lg-8 mt-30">
                     <div class="row">
+                    {% for post in posts %}
                         <div class="col-lg-6 col-md-6">
                             <!--Post-1-->
                             <div class="post-card">
@@ -40,11 +41,10 @@
                                 <div class="post-card-content">
                                     <a href="blog-grid.html" class="categorie">تغذية</a>
                                     <h5>
-                                        <a href="post-default.html">7 وصفات عشاء لقضاء ليلة في المنزل</a>
+                                        <a href="post-default.html">{{post.title}}</a>
                                     </h5>
                                     <p>
-                                        خسائر اللازمة ومطالبة حدة بل. الآخر الحلفاء أن غزو, إجلاء وتنامت عدد مع. لقهر معركة لبلجيكا، بـ انه, ربع الأثنان المقيتة
-                                        في, اقتصّت المحور حدة و....
+                                    {{post.content}}
                                     </p>
                                     <div class="post-card-info">
                                         <ul class="list-inline">
@@ -54,264 +54,17 @@
                                                 </a>
                                             </li>
                                             <li>
-                                                <a href="author.html"> دفيد سميث</a>
+                                                <a href="author.html"> {{post.author}}</a>
                                             </li>
                                             <li class="dot"></li>
-                                            <li>15 يناير 2021 </li>
+                                            <li>{{post.published_date}}</li>
                                         </ul>
                                     </div>
                                 </div>
                             </div>
                             <!--/-->
                         </div>
-                        <div class="col-lg-6 col-md-6">
-                            <!--Post-2-->
-                            <div class="post-card">
-                                <div class="post-card-image">
-                                    <a href="post-default.html">
-                                        <img src="{% static 'img/blog/1.jpg' %}" alt="">
-                                    </a>
-                                </div>
-                                <div class="post-card-content">
-                                    <a href="blog-grid.html" class="categorie">تغدية</a>
-                                    <h5>
-                                        <a href="post-default.html">استمتع بكيك الشوكولاتة مولتن المفضل لدي</a>
-                                    </h5>
-    
-                                    <p>
-                                        خسائر اللازمة ومطالبة حدة بل. الآخر الحلفاء أن غزو, إجلاء وتنامت عدد مع. لقهر معركة لبلجيكا، بـ انه, ربع الأثنان المقيتة
-                                        في, اقتصّت المحور حدة و....
-                                    </p>
-                                    <div class="post-card-info">
-                                        <ul class="list-inline">
-                                            <li>
-                                                <a href="author.html">
-                                                    <img src="{% static 'img/author/1.jpg' %}" alt="">
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="author.html"> دفيد سميث</a>
-                                            </li>
-                                            <li class="dot"></li>
-                                            <li>15 يناير 2021 </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                            <!--/-->
-                        </div>
-                        <div class="col-lg-6 col-md-6">
-                            <!--Post-3-->
-                            <div class="post-card">
-                                <div class="post-card-image">
-                                    <a href="post-default.html">
-                                        <img src="{% static 'img/blog/3.jpg' %}" alt="">
-                                    </a>
-                                </div>
-                                <div class="post-card-content">
-                                    <a href="blog-grid.html" class="categorie">تغدية</a>
-                                    <h5>
-                                        <a href="post-default.html">سلاصة الفواكه بالموز وزيت الزيتون والليمون</a>
-                                    </h5>
-    
-                                    <p>
-                                        خسائر اللازمة ومطالبة حدة بل. الآخر الحلفاء أن غزو, إجلاء وتنامت عدد مع. لقهر معركة لبلجيكا، بـ انه, ربع الأثنان المقيتة
-                                        في, اقتصّت المحور حدة و....
-                                    </p>
-                                    <div class="post-card-info">
-                                        <ul class="list-inline">
-                                            <li>
-                                                <a href="author.html">
-                                                    <img src="{% static 'img/author/1.jpg' %}" alt="">
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="author.html"> دفيد سميث</a>
-                                            </li>
-                                            <li class="dot"></li>
-                                            <li>15 يناير 2021 </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                            <!--/-->
-                        </div>
-                        <div class="col-lg-6 col-md-6">
-                            <!--Post-4-->
-                            <div class="post-card">
-                                <div class="post-card-image">
-                                    <a href="post-default.html">
-                                        <img src="{% static 'img/blog/10.jpg' %}" alt="">
-                                    </a>
-                                </div>
-                                <div class="post-card-content">
-                                    <a href="blog-grid.html" class="categorie">تغدية</a>
-                                    <h5>
-                                        <a href="post-default.html">7 وصفات عشاء لقضاء ليلة في المنزل</a>
-                                    </h5>
-                                    <p>
-                                        خسائر اللازمة ومطالبة حدة بل. الآخر الحلفاء أن غزو, إجلاء وتنامت عدد مع. لقهر معركة لبلجيكا، بـ انه, ربع الأثنان المقيتة
-                                        في, اقتصّت المحور حدة و....
-                                    </p>
-                                    <div class="post-card-info">
-                                        <ul class="list-inline">
-                                            <li>
-                                                <a href="author.html">
-                                                    <img src="{% static 'img/author/1.jpg' %}" alt="">
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="author.html"> دفيد سميث</a>
-                                            </li>
-                                            <li class="dot"></li>
-                                            <li>15 يناير 2021 </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                            <!--/-->
-                        </div>
-                        <div class="col-lg-6 col-md-6">
-                            <!--Post-5-->
-                            <div class="post-card">
-                                <div class="post-card-image">
-                                    <a href="post-default.html">
-                                        <img src="{% static 'img/blog/4.jpg' %}" alt="">
-                                    </a>
-                                </div>
-                                <div class="post-card-content">
-                                    <a href="blog-grid.html" class="categorie">تغدية</a>
-                                    <h5>
-                                        <a href="post-default.html">كيف تصنع الفطائر المغربية في خمس خطوات؟</a>
-                                    </h5>
-                                    <p>
-                                        خسائر اللازمة ومطالبة حدة بل. الآخر الحلفاء أن غزو, إجلاء وتنامت عدد مع. لقهر معركة لبلجيكا، بـ انه, ربع الأثنان المقيتة
-                                        في, اقتصّت المحور حدة و....
-                                    </p>
-                                    <div class="post-card-info">
-                                        <ul class="list-inline">
-                                            <li>
-                                                <a href="author.html">
-                                                    <img src="{% static 'img/author/1.jpg' %}" alt="">
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="author.html"> دفيد سميث</a>
-                                            </li>
-                                            <li class="dot"></li>
-                                            <li>15 يناير 2021 </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                            <!--/-->
-                        </div>
-                        <div class="col-lg-6 col-md-6">
-                            <!--Post-6-->
-                            <div class="post-card">
-                                <div class="post-card-image">
-                                    <a href="post-default.html">
-                                        <img src="{% static 'img/blog/7.jpg' %}" alt="">
-                                    </a>
-                                </div>
-                                <div class="post-card-content">
-                                    <a href="blog-grid.html" class="categorie">تغدية</a>
-                                    <h5>
-                                        <a href="post-default.html">كيف تحضر سندوشات صحية في المنزل لاطفالك؟</a>
-                                    </h5>
-                                    <p>
-                                        خسائر اللازمة ومطالبة حدة بل. الآخر الحلفاء أن غزو, إجلاء وتنامت عدد مع. لقهر معركة لبلجيكا، بـ انه, ربع الأثنان المقيتة
-                                        في, اقتصّت المحور حدة و....
-                                    </p>
-                                    <div class="post-card-info">
-                                        <ul class="list-inline">
-                                            <li>
-                                                <a href="author.html">
-                                                    <img src="{% static 'img/author/1.jpg' %}" alt="">
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="author.html"> دفيد سميث</a>
-                                            </li>
-                                            <li class="dot"></li>
-                                            <li>15 يناير 2021 </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                            <!--/-->
-                        </div>
-                        <div class="col-lg-6 col-md-6">
-                            <!--Post-7-->
-                            <div class="post-card">
-                                <div class="post-card-image">
-                                    <a href="post-default.html">
-                                        <img src="{% static 'img/blog/5.jpg' %}" alt="">
-                                    </a>
-                                </div>
-                                <div class="post-card-content">
-                                    <a href="blog-grid.html" class="categorie">تغدية</a>
-                                    <h5>
-                                        <a href="post-default.html">كيف تصنع برجر وبطاطا مقلية في المنزل؟</a>
-                                    </h5>
-                                    <p>
-                                        خسائر اللازمة ومطالبة حدة بل. الآخر الحلفاء أن غزو, إجلاء وتنامت عدد مع. لقهر معركة لبلجيكا، بـ انه, ربع الأثنان المقيتة
-                                        في, اقتصّت المحور حدة و....
-                                    </p>
-                                    <div class="post-card-info">
-                                        <ul class="list-inline">
-                                            <li>
-                                                <a href="author.html">
-                                                    <img src="{% static 'img/author/1.jpg' %}" alt="">
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="author.html"> دفيد سميث</a>
-                                            </li>
-                                            <li class="dot"></li>
-                                            <li>15 يناير 2021 </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                            <!--/-->
-                        </div>
-                        <div class="col-lg-6 col-md-6">
-                            <!--Post-8-->
-                            <div class="post-card">
-                                <div class="post-card-image">
-                                    <a href="post-default.html">
-                                        <img src="{% static 'img/blog/9.jpg' %}" alt="">
-                                    </a>
-                                </div>
-                                <div class="post-card-content">
-                                    <a href="blog-grid.html" class="categorie">تغدية</a>
-                                    <h5>
-                                        <a href="post-default.html">كيفية تحضير وجبة فطور ملكية صحية في المنزل</a>
-                                    </h5>
-                                    <p>
-                                        خسائر اللازمة ومطالبة حدة بل. الآخر الحلفاء أن غزو, إجلاء وتنامت عدد مع. لقهر معركة لبلجيكا، بـ انه, ربع الأثنان المقيتة
-                                        في, اقتصّت المحور حدة و....
-                                    </p>
-                                    <div class="post-card-info">
-                                        <ul class="list-inline">
-                                            <li>
-                                                <a href="author.html">
-                                                    <img src="{% static 'img/author/1.jpg' %}" alt="">
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="author.html"> دفيد سميث</a>
-                                            </li>
-                                            <li class="dot"></li>
-                                            <li>15 يناير 2021 </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                            <!--/-->
-                        </div>
-    
+                        {% endfor %}
                         <!--pagination-->
                         <div class="col-lg-12">
                             <div class="pagination mt--10">
