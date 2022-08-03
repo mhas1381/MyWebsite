@@ -35,7 +35,7 @@
                             <div class="post-card">
                                 <div class="post-card-image">
                                     <a href="{% url 'blog:single' pid=post.id %}">
-                                        <img src="{% static 'img/blog/7.jpg' %}" alt="">
+                                        <img src="{{post.image.url}}" alt="">
                                     </a>
                                 </div>
                                 <div class="post-card-content">
