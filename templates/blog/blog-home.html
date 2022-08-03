@@ -34,14 +34,14 @@
                             <!--Post-1-->
                             <div class="post-card">
                                 <div class="post-card-image">
-                                    <a href="post-default.html">
+                                    <a href="{% url 'blog:single' pid=post.id %}">
                                         <img src="{% static 'img/blog/7.jpg' %}" alt="">
                                     </a>
                                 </div>
                                 <div class="post-card-content">
                                     <a href="blog-grid.html" class="categorie">تغذية</a>
                                     <h5>
-                                        <a href="post-default.html">{{post.title}}</a>
+                                        <a href="{% url 'blog:single' pid=post.id %}">{{post.title}}</a>
                                     </h5>
                                     <p>
                                     {{post.content}}
