@@ -17,7 +17,7 @@
                             <div class="post-single-info">
                                 <ul class="list-inline">
                                     <li><a href="author.html"><img src="{% static 'img/author/1.jpg' %}" alt=""></a></li>
-                                    <li><a href="author.html">{{post.author}}</a> </li>
+                                    <li><a href="author.html">{{post.author.get_full_name}}</a> </li>
                                     <li class="dot"></li>
                                     <li>{{post.published_date}}</li>
                                     <li class="dot"></li>
