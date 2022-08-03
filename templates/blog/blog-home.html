@@ -39,7 +39,9 @@
                                     </a>
                                 </div>
                                 <div class="post-card-content">
-                                    <a href="blog-grid.html" class="categorie">تغذية</a>
+                                    {% for cat in post.category.all %}
+                                    <a href="blog-grid.html" class="categorie">{{cat.name}}</a>
+                                    {% endfor %}
                                     <h5>
                                         <a href="{% url 'blog:single' pid=post.id %}">{{post.title}}</a>
                                     </h5>
@@ -57,7 +59,7 @@
                                                 <a href="author.html">{{post.author.get_full_name}}</a>
                                             </li>
                                             <li class="dot"></li>
-                                            <li>{{post.published_date}}</li>
+                                            <li>{{post.published_date|date:"d/M/Y"}}</li>
                                         </ul>
                                     </div>
                                 </div>

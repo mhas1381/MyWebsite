@@ -12,14 +12,16 @@
                             <img src="{{post.image.url}}" alt="">
                         </div>
                         <div class="post-single-content">
-                            <a href="blog-grid.html" class="categorie">السفر</a> 
+                            {% for cat in post.category.all %}
+                            <a href="blog-grid.html" class="categorie">{{cat.name}}</a> 
+                            {% endfor %}
                             <h4>{{post.title}}</h4>
                             <div class="post-single-info">
                                 <ul class="list-inline">
                                     <li><a href="author.html"><img src="{% static 'img/author/1.jpg' %}" alt=""></a></li>
                                     <li><a href="author.html">{{post.author.get_full_name}}</a> </li>
                                     <li class="dot"></li>
-                                    <li>{{post.published_date}}</li>
+                                    <li>{{post.published_date|date:"d/M/Y"}}</li>
                                     <li class="dot"></li>
                                     <li>تعداد نظرات</li>
                                 </ul>
@@ -352,27 +354,15 @@
                     <!--widget-categories-->
                     <div class="widget">
                         <div class="section-title">
-                            <h5>تصنيفات</h5>
+                            <h5>دسته بندی ها</h5>
                         </div>
                         <ul class="widget-categories">
+                            {% for cat in post.category.all %}
                             <li>
                                 <span class="ml-auto">22 مقالات</span>
-                                <a href="#" class="categorie">اسلوب حياة</a> 
-                               
+                                <a href="#" class="categorie">{{cat.name}}</a>                          
                             </li>
-                            <li>
-                                
-                                <span class="mr-auto">18 مقالات</span>
-                                <a href="#" class="categorie">السفر</a>
-                            </li>
-                            <li>
-                                <a href="#" class="categorie">الطعام</a>
-                                <span class="mr-auto">14 مقالات</span>
-                            </li>
-                            <li>
-                                <a href="#" class="categorie">موضة</a>
-                                <span class="mr-auto">10 مقالات</span>
-                            </li>
+                            {% endfor %}
                         </ul>
                     </div><!--/-->
                     

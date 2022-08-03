@@ -1,5 +1,5 @@
 from django.contrib import admin
-from blog.models import Post
+from blog.models import Post,Category
 from website.models import Contact
 # Register your models here.
 
@@ -16,3 +16,4 @@ class ContactAdmin(admin.ModelAdmin):
     search_fields = ('name' , 'messages')
 admin.site.register(Post , PostAdmin)
 admin.site.register(Contact , ContactAdmin)
+admin.site.register(Category)
