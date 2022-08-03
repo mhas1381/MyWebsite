@@ -44,7 +44,7 @@
                                         <a href="{% url 'blog:single' pid=post.id %}">{{post.title}}</a>
                                     </h5>
                                     <p>
-                                    {{post.content}}
+                                    {{post.content|truncatechars:250}}
                                     </p>
                                     <div class="post-card-info">
                                         <ul class="list-inline">
