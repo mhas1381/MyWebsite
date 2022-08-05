@@ -41,7 +41,7 @@
                                 </div>
                                 <div class="post-card-content">
                                     {% for cat in post.category.all %}
-                                    <a href="blog-grid.html" class="categorie">{{cat.name}}</a>
+                                    <a href="{% url 'blog:category' cat_name=cat.name %}" class="categorie">{{cat.name}}</a>
                                     {% endfor %}
                                     <h5>
                                         <a href="{% url 'blog:single' pid=post.id %}">{{post.title}}</a>

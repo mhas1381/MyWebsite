@@ -8,7 +8,7 @@
         {% for name,count in categories.items %}
         <li>
             <span class="ml-auto">{{count}}</span>
-            <a href="#" class="categorie">{{name}}</a>                          
+            <a href="{% url 'blog:category' cat_name=name %}" class="categorie">{{name}}</a>                          
         </li>
         {% endfor %}
     </ul>
