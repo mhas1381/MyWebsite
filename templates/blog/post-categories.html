@@ -1,13 +1,14 @@
 {% load static %}
+{% load blog_tags %}
 <div class="widget">
     <div class="section-title">
         <h5>دسته بندی ها</h5>
     </div>
     <ul class="widget-categories">
-        {% for cat in post.category.all %}
+        {% for name,count in categories.items %}
         <li>
-            <span class="ml-auto">22 مقالات</span>
-            <a href="#" class="categorie">{{cat.name}}</a>                          
+            <span class="ml-auto">{{count}}</span>
+            <a href="#" class="categorie">{{name}}</a>                          
         </li>
         {% endfor %}
     </ul>
