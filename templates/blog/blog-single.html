@@ -19,8 +19,8 @@
                             <h4>{{post.title}}</h4>
                             <div class="post-single-info">
                                 <ul class="list-inline">
-                                    <li><a href="author.html"><img src="{% static 'img/author/1.jpg' %}" alt=""></a></li>
-                                    <li><a href="author.html">{{post.author.get_full_name}}</a> </li>
+                                    <li><a href="{% url 'blog:author' author_username=post.author.username %}"><img src="{% static 'img/author/1.jpg' %}" alt=""></a></li>
+                                    <li><a href="{% url 'blog:author' author_username=post.author.username %}">{{post.author.get_full_name}}</a> </li>
                                     <li class="dot"></li>
                                     <li>{{post.published_date|date:"D d M Y"}}</li>
                                     <li class="dot"></li>
