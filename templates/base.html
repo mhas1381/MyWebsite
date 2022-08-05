@@ -188,8 +188,8 @@
                 <button type="button" class="close">
                     <i class="icon_close"></i>
                 </button>
-                <form class="search-form " action="#">
-                    <input type="search" value="" placeholder="دنبال چه چیزی میگردی؟">
+                <form class="search-form " action="{% url 'blog:search' %}" , method="get">
+                    <input type="text" name="s" value="" placeholder="دنبال چه چیزی میگردی؟">
                     <button type="submit" class="search-btn">بگرد</button>
                 </form>
             </div>
