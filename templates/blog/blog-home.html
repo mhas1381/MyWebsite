@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 {% load static %}
+{% load humanize %}
 {% load blog_tags %}
 {% block content %}
     <!--category-->
@@ -60,7 +61,7 @@
                                                 <a href="{% url 'blog:author' author_username=post.author.username %}">{{post.author.get_full_name}}</a>
                                             </li>
                                             <li class="dot"></li>
-                                            <li>{{post.published_date|date:"D d M Y"}}</li>
+                                            <li>{{post.published_date|naturaltime}}</li>
                                         </ul>
                                     </div>
                                 </div>
