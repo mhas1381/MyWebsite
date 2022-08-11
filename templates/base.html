@@ -128,10 +128,12 @@
                     <h5>مشترک شوید</h5>
                     <p> اولین نفری باشید که از مطالب من با خبر میشوید </p>
                 </div>
-                <form action="#" class="newslettre-form">
+                <form action="{% url 'website:newsletter' %}" class="newslettre-form" method="post">
+                    
                     <div class="form-flex">
                         <div class="form-group">
-                            <input type="email" class="form-control" placeholder="ایمیل خود را وارد کنید"
+                    {% csrf_token %}
+                            <input type="email" name="email" class="form-control" placeholder="ایمیل خود را وارد کنید"
                                 required="required">
                         </div>
                         <button class="submit-btn" type="submit">اشتراک</button>
