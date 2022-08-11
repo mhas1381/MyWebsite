@@ -23,3 +23,6 @@ class Post(models.Model):
         ordering = ['-created_date']
     def __str__(self):
         return "{}-{}".format(self.id , self.title)
+
+    def get_absolute_url(self):
+        return reverse('blog:single' , kwargs={'pid':self.id})
