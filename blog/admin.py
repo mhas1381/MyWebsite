@@ -9,11 +9,6 @@ class PostAdmin(admin.ModelAdmin):
     list_display = ('title' ,'author', 'status' ,'published_date', 'created_date')
     list_filter = ('status' ,'author')
     search_fields = ['title' , 'content']
-class ContactAdmin(admin.ModelAdmin):
-    date_hierarchy = 'created_date' 
-    list_display = ('name' , 'email' , 'created_date')
-    list_filter = ('email',)
-    search_fields = ('name' , 'messages')
+
 admin.site.register(Post , PostAdmin)
-admin.site.register(Contact , ContactAdmin)
 admin.site.register(Category)
