@@ -1,5 +1,6 @@
 {% load static %}
 {% load blog_tags %}
+{% load humanize %}
 <div class="widget ">
     <div class="section-title">
         <h5>آخرین پست ها</h5>
@@ -18,7 +19,7 @@
                     <a href="{% url 'blog:single' pid=post.id %}">{{post.title}}</a>
                 </p>
                 <small>
-                    <span class="icon_clock_alt"></span> {{post.published_date|date:"D d M Y"}}</small>
+                    <span class="icon_clock_alt"></span> {{post.published_date|naturaltime}}</small>
             </div>
         </li>
         {% endfor %}
