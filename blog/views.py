@@ -1,6 +1,7 @@
 from django.shortcuts import render,get_object_or_404
-from blog.models import Post
+from blog.models import Post,Comment
 from django.core.paginator import Paginator,EmptyPage,PageNotAnInteger
+from blog.forms import Comment_form
 # Create your views here.
 def blog_view(request , **kwargs):
     posts = Post.objects.filter(status=1)
@@ -19,9 +20,15 @@ def blog_view(request , **kwargs):
     context = {'posts':posts}
     return render(request,'blog/blog-home.html' , context)
 def blog_single(request , pid):
+    if request.method == 'POST':
+        form = Comment_form(request.POST)
+        if form.is_valid():
+            form.save()
     posts = Post.objects.filter(status=1)
     post = get_object_or_404(posts , pk=pid , status =1)
-    context = {'post':post}
+    comments = Comment.objects.filter(post = post.id , approved=True)
+    form = Comment_form()
+    context = {'post':post , 'comments':comments , 'form':form}
     return render(request,'blog/blog-single.html' , context)
 
 def blog_categories(request,cat_name):

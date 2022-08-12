@@ -25,7 +25,7 @@
                                     <li class="dot"></li>
                                     <li>{{post.published_date|naturaltime}}</li>
                                     <li class="dot"></li>
-                                    <li>تعداد نظرات</li>
+                                    <li>تعداد نظرات: {{comments|length}}</li>
                                 </ul>
                             </div>
                         </div>
@@ -135,102 +135,62 @@
                     <!--widget-comments-->
                     <div class="widget mb-50">
                         <div class="title">
-                            <h5>3 تعليقات</h5>
+                            <h5>نظرات</h5>
                         </div>
+                        
                         <ul class="widget-comments">
+                            {% for comment in comments %}
                             <li class="comment-item">
                                 <img src="{% static 'img/user/1.jpg' %}" alt="">
                                 <div class="content">
                                     <ul class="info list-inline">
-                                        <li>محمد علي</li>
+                                        <li>{{comment.name}}</li>
                                         <li class="dot"></li>
-                                        <li> 15 يناير 2021</li>
+                                        <li> {{comment.created_date|naturaltime}}</li>
                                     </ul>
-                                    <p>خسائر اللازمة ومطالبة حدة بل. الآخر الحلفاء أن غزو, إجلاء وتنامت عدد مع. لقهر معركة لبلجيكا، بـ انه, ربع الأثنان المقيتة
-                                    في, اقتصّت المحور حدة و. هذه ما طرفاً عالمية استسلام, الصين وتنامت ,
-                                     
+                                    <p>{{comment.message}}
                                     </p>
-                                    <div><a href="#" class="link"> <i class="arrow_back"></i> رد</a></div>
-                                </div>
                             </li>
-                            <li class="comment-item">
-                                <img src="{% static 'img/author/1.jpg' %}" alt="">
-                                <div class="content">
-                                    <ul class="info list-inline">
-                                        <li>سيمون البرت</li>
-                                        <li class="dot"></li>
-                                        <li> 15 يناير 2021</li>
-                                    </ul>
-                                                      
-                                    <p>خسائر اللازمة ومطالبة حدة بل. الآخر الحلفاء أن غزو, إجلاء وتنامت عدد مع. لقهر معركة لبلجيكا، بـ انه, ربع الأثنان المقيتة
-                                        في, اقتصّت المحور حدة و. هذه ما طرفاً عالمية استسلام, الصين وتنامت ,
-                                    
-                                    </p>
-                                    <div>
-                                        <a href="#" class="link">
-                                            <i class="arrow_back"></i> رد</a>
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="comment-item">
-                                <img src="{% static 'img/user/2.jpg' %}" alt="">
-                                <div class="content">
-                               
-                                    <ul class="info list-inline">
-                                        <li>ادام بوبلي</li>
-                                        <li class="dot"></li>
-                                        <li> 15 يناير 2021</li>
-                                    </ul>
-                    
-                                    <p>خسائر اللازمة ومطالبة حدة بل. الآخر الحلفاء أن غزو, إجلاء وتنامت عدد مع. لقهر معركة لبلجيكا، بـ انه, ربع الأثنان المقيتة
-                                        في, اقتصّت المحور حدة و. هذه ما طرفاً عالمية استسلام, الصين وتنامت ,
-                                    
-                                    </p>
-
-                                    <div>
-                                        <a href="#" class="link">
-                                            <i class="arrow_back"></i> رد</a>
-                                    </div>
-                                </div>
-                            </li>
+                            {% empty %}
+                            <p>هنوز نظری ثبت نشده است ،اولین نفری باشید که نظر میدهید.</p>
+                            {% endfor %}
                         </ul>
                        <!--Leave-comments-->
                         <div class="title">
-                            <h5>اترك تعليق</h5>
+                            <h5>نظر بدهید</h5>
                         </div>
-                        <form class="widget-form" action="#" method="POST" id="main_contact_form">
-                            <p>.لن يتم نشر عنوان بريدك الإلكتروني ، الحقول الإلزامية مشار إليها *</p>
+                        <form class="widget-form" action="{% url 'blog:single' pid=post.id %}" method="post">
+                            {% csrf_token %}
+                            <p>آدرس ایمیل شما نشر داده نخواهد شد ، پر کردن قسمت های * دار الزامی است.</p>
                             <div class="alert alert-success contact_msg" style="display: none" role="alert">
                                 Your message was sent successfully.
                             </div>
                             <div class="row">
+                                <input type="hidden" name="post" value="{{post.id}}">
                                 <div class="col-md-12">
                                     <div class="form-group">
-                                        <textarea name="message" id="message" cols="30" rows="5" class="form-control" placeholder="تعليق*" required="required"></textarea>
+                                        <input name="message"  cols="30" rows="5" class="form-control" placeholder="نظر*" required="required"></input>
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <input type="text" name="name" id="name" class="form-control" placeholder="الاسم*" required="required">
+                                        <input type="text" name="name" class="form-control" placeholder="نام*" required="required">
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <input type="email" name="email" id="email" class="form-control" placeholder="البريد*" required="required">
+                                        <input type="email" name="email"  class="form-control" placeholder="ایمیل*" required="required">
                                     </div>
                                 </div>
                                 <div class="col-12 mb-20">
-                                    <div class="form-group">
-                                        <input type="text" name="website" id="website" class="form-control" placeholder="الموقع">
-                                    </div>
                                     <label>
                                         <input name="name" type="checkbox" value="1" required="required"> 
-                                       <span>احفظ اسمي والبريد الإلكتروني والموقع الإلكتروني في هذا المتصفح لاستخدامها المرة المقبلة في تعليقي.</span>                                   
+                                       <span>نام و ایمیل مرا در این مرورگر برای افزودن دیدگاه در آینده، ذخیره کن.</span>                                   
                                     </label>
                                 </div>
                                 <div class="col-12">
                                     <button type="submit" name="submit" class="btn-custom">
-                                        ارسال تعليق
+                                        فرستادن نظر
                                     </button>
                                 </div> 
                             </div>
