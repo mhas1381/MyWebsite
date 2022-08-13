@@ -1,8 +1,8 @@
 from django.shortcuts import render,redirect
 from accounts.urls import *
 from django.contrib.auth import authenticate, login,logout
-from django.contrib.auth.forms import AuthenticationForm
-
+from django.contrib.auth.forms import AuthenticationForm , UserCreationForm
+from django.contrib import messages
 # Create your views here.
 def login_view(request):
     if not request.user.is_authenticated:
@@ -27,4 +27,14 @@ def logout_view(request):
     return redirect('/') 
 
 def signup_view(request):
-    return render(request, 'accounts/sign-up.html')
+    if not request.user.is_authenticated:
+        if request.method== "POST":
+            form = UserCreationForm(request.POST)
+            if form.is_valid():
+                form.save()
+                redirect('/blog')
+                print('registeration was successful')
+        form = UserCreationForm()
+        context = {'form':form}
+        return render(request, 'accounts/sign-up.html' , context)
+        
