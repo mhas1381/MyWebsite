@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+    <!--Login-->
+    <section class="section pt-55 mb-50">
+        <div class="container">
+            <div class="sign widget ">
+                <div class="section-title">
+                    <h5>ورود به سایت</h5>
+                </div>
+                <form action="#" class="sign-form widget-form " method="post">
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="نام کاربری" name="username" value="">
+                    </div>
+                    <div class="form-group">
+                        <input type="password" class="form-control" placeholder="رمز" name="password" value="">
+                    </div>
+                    <div class="sign-controls form-group">
+                        <div class="custom-control custom-checkbox">
+                             <input type="checkbox" class="custom-control-input" id="rememberMe">
+                            <label class="custom-control-label" for="rememberMe">من را به یاد بیاور</label>
+                           
+                        </div>
+                        <a href="#" class="btn-link  mr-auto"> رمز عبور خود را فراموش کرده اید ؟</a>
+                    </div>
+                    <div class="form-group">
+                        <button type="submit" class="btn-custom">ورود</button>
+                    </div>
+    
+                    <p class="form-group text-center"> آیا حسابی در سایت ندارید؟
+                        <a href="{% url 'accounts:signup' %}" class="btn-link">ساخت حساب</a>
+                    </p>
+    
+                </form>
+            </div>
+        </div>
+    </section>
+
+{% endblock %}
