@@ -169,7 +169,7 @@
                                 <input type="hidden" name="post" value="{{post.id}}">
                                 <div class="col-md-12">
                                     <div class="form-group">
-                                        <input name="message"  cols="30" rows="5" class="form-control" placeholder="نظر*" required="required"></input>
+                                        <textarea name="message"  cols="30" rows="5" class="form-control" placeholder="نظر*" required="required"></textarea>
                                     </div>
                                 </div>
                                 <div class="col-md-6">
@@ -184,8 +184,30 @@
                                 </div>
                                 <div class="col-12 mb-20">
                                     <label>
-                                        <input name="name" type="checkbox" value="1" required="required"> 
-                                       <span>نام و ایمیل مرا در این مرورگر برای افزودن دیدگاه در آینده، ذخیره کن.</span>                                   
+                                        {% if messages %}
+                                        {% for message in messages %}
+                                          <div class="alert {% if message.tags %} alert-{{ message.tags }}{% endif %}">{{ message|safe }}</div>
+                                        {% endfor %}
+                                      {% endif %}
+                                      
+                                      {% if form.errors %}
+                                        <div class="alert alert-error">
+                                          <h4>Please fix the following errors</h4>
+                                          <ul>
+                                            {% for field in form %}
+                                              {% if field.errors %}
+                                                {% for error in field.errors %}
+                                                  <li><a href="#id_{{ field.name }}" class="error">{{ error|escape }}</a></li>
+                                                {% endfor %}
+                                              {% endif %}
+                                            {% endfor %}
+                                          </ul>
+                                          {% if form.non_field_errors %}
+                                            {{ form.non_field_errors }}
+                                          {% endif %}
+                                        </div>
+                                      {% endif %}
+                
                                     </label>
                                 </div>
                                 <div class="col-12">
