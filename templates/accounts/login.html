@@ -8,7 +8,8 @@
                 <div class="section-title">
                     <h5>ورود به سایت</h5>
                 </div>
-                <form action="#" class="sign-form widget-form " method="post">
+                <form action="{% url 'accounts:login' %}" class="sign-form widget-form " method="post">
+                    {% csrf_token %}
                     <div class="form-group">
                         <input type="text" class="form-control" placeholder="نام کاربری" name="username" value="">
                     </div>

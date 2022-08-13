@@ -65,8 +65,24 @@
                         <a class="nav-link" href="{% url 'website:contact' %}"> ارتباط با ما</a>
                     </li>
                     <li class="nav-item">
+                        <a  class='nav-link' href=""></a>
+                    </li>
+                
+                <li class="nav-item">
+                    <a  class='nav-link' href=""></a>
+                </li>
+                    {% if request.user.is_authenticated %}
+                    <li class="nav-item"> 
+                        <a href="#" class="nav-link">{{request.user.username}}</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'accounts:logout' %}">خروج از حساب کاربری</a>
+                    </li>
+                    {% else %}
+                    <li class="nav-item">
                         <a class="nav-link" href="{% url 'accounts:login' %}"> ورود به سایت</a>
                     </li>
+                    {% endif %}
                 </ul>
             </div>
             <!--/-->
