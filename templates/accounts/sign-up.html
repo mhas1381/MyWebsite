@@ -9,23 +9,18 @@
                     <h5>ساخت حساب کاربری</h5>
                 </div>
     
-                <form class="sign-form widget-form contact_form " action="{% url 'accounts:signup' %}" method="post">
+                <form  action="{% url 'accounts:signup' %}" method="post">
                     {% csrf_token %}
                     <div class="form-group">
-    
                         <input type="text" class="form-control" placeholder="نام کاربری*" name="username" value="">
                     </div>
-                    <!-- <div class="form-group">
-    
-                        <input type="email" class="form-control" placeholder="ایمیل*" name="email" value="">
-                    </div> -->
                     <div class="form-group">
                         <input type="password" class="form-control" placeholder="رمز عبور*" name="password1" value="">
                     </div>
                     <div class="form-group">
                         <input type="password" class="form-control" placeholder="تایید رمز عبور*" name="password2" value="">
                     </div>
-                    <div class="form-group">
+                    <div class="form-group text-center">
                         <button type="submit" class="btn-custom">ساخت حساب کاربری</button>
                     </div>
                     <p class="form-group text-center">از قدیم حساب کاربری دارید؟

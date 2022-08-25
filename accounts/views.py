@@ -3,6 +3,7 @@ from accounts.urls import *
 from django.contrib.auth import authenticate, login,logout
 from django.contrib.auth.forms import AuthenticationForm , UserCreationForm
 from django.contrib import messages
+from django.contrib.auth.decorators import login_required
 # Create your views here.
 def login_view(request):
     if not request.user.is_authenticated:
@@ -21,6 +22,7 @@ def login_view(request):
     else:
         return redirect('/')
 
+@login_required
 def logout_view(request):
     if request.user.is_authenticated:
         logout(request)
@@ -28,13 +30,13 @@ def logout_view(request):
 
 def signup_view(request):
     if not request.user.is_authenticated:
-        if request.method== "POST":
+        if request.method == 'POST':
             form = UserCreationForm(request.POST)
             if form.is_valid():
                 form.save()
-                redirect('/blog')
-                print('registeration was successful')
+                return redirect('/accounts/login')
         form = UserCreationForm()
         context = {'form':form}
-        return render(request, 'accounts/sign-up.html' , context)
-        
+        return render(request,'accounts/sign-up.html',context)
+    else:
+        return redirect('/')
