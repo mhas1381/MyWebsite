@@ -68,7 +68,7 @@
                     </div> <!--/-->
 
                     <!--next & previous-posts-->
-                    <div class="row">
+                    <!-- <div class="row">
                         <div class="col-md-6">
                             <div class="widget">
                                 <div class="widget-next-post">
@@ -110,7 +110,7 @@
                                 </div>
                             </div>
                         </div>
-                    </div><!--/-->
+                    </div>/ -->
 
                     <!--widget-comments-->
                     <div class="widget mb-50">
@@ -141,25 +141,21 @@
                         </div>
                         <form class="widget-form" action="{% url 'blog:single' pid=post.id %}" method="post">
                             {% csrf_token %}
-                            <p>آدرس ایمیل شما نشر داده نخواهد شد ، پر کردن قسمت های * دار الزامی است.</p>
-                            <div class="alert alert-success contact_msg" style="display: none" role="alert">
-                                Your message was sent successfully.
-                            </div>
+                            <p> پر کردن قسمت های * دار الزامی است.</p>
                             <div class="row">
                                 <input type="hidden" name="post" value="{{post.id}}">
+                                {% if request.user.is_authenticated %}
+                                <input type="hidden" name="name" value={{request.user.get_username}}>
+                                {% else %}
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <input type="text" name="name" class="form-control" placeholder="نام*" required>
+                                    </div>
+                                </div>
+                                {% endif %}
                                 <div class="col-md-12">
                                     <div class="form-group">
-                                        <textarea name="message"  cols="30" rows="5" class="form-control" placeholder="نظر*" required="required"></textarea>
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <input type="text" name="name" class="form-control" placeholder="نام*" required="required">
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <input type="email" name="email"  class="form-control" placeholder="ایمیل*" required="required">
+                                        <textarea name="message"  cols="30" rows="5" class="form-control" placeholder="نظر*" required></textarea>
                                     </div>
                                 </div>
                                 <div class="col-12 mb-20">
