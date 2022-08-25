@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render,redirect
 from django.http import HttpResponseRedirect
 from website.models import Contact
 from website.forms import Contact_Form, NewsLetter_Form
@@ -11,6 +11,7 @@ def contact_view(request):
         form = Contact_Form(request.POST)
         if form.is_valid():
             form.save()
+            return redirect('/')
     form = Contact_Form()
     return render(request,'website/contact.html',{'form':form})
 

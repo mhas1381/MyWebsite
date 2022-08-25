@@ -24,26 +24,29 @@
                             {% csrf_token %}
                             <h6>در هر زمان با خیال راحت تماس بگیرید.</h6>
                             <p>در اسرع وقت پاسخگو خواهیم بود</p>
-                            <div class="alert alert-success contact_msg" style="display: none" role="alert">
-                                Your message was sent successfully.
+                            <div style="display: none" role="alert">
                             </div>
+                            {% if request.user.is_authenticated %}
+                            <input type="hidden" name="name" value={{request.user.get_username}}>
+                            {% else %}
                             <div class="form-group">
-                                <input type="text" name="name"  class="form-control" placeholder="نام" required="required">
+                                <input type="text" name="name"  class="form-control" placeholder="نام*" required="required">
                             </div>
-                
+                            {% endif %}
                             <div class="form-group">
-                                <input type="email" name="email"  class="form-control" placeholder="ایمیل" required="required">
-                            </div>
-                
-                            <div class="form-group">
-                                <input type="text" name="subject"  class="form-control" placeholder="موضوع" required="required">
+                                <input type="email" name="email"  class="form-control" placeholder="ایمیل*" required="required">
                             </div>
                 
                             <div class="form-group">
-                                <textarea name="messages"  cols="30" rows="5" class="form-control" placeholder="متن" required="required"></textarea>
+                                <input type="text" name="subject"  class="form-control" placeholder = "موضوع*" required="required">
+                            </div>
+                
+                            <div class="form-group">
+                                <textarea name="messages"  cols="30" rows="5" class="form-control" placeholder="پیام*" required="required"></textarea>
                             </div>
                             {{form.captcha}}
                             <button type="submit" class="btn-custom">ارسال</button>
+
                         </form> 
                     </div>
                 </div>
