@@ -1,0 +1,46 @@
+{% load static %}
+{% load blog_tags %}
+{% load humanize %}
+{% load website_tags %}
+<!--grid-layout-->
+<section class="section pt-85">
+    <div class="container-fluid">
+        <div class="row">
+        {% for post in posts %}
+            <div class="col-lg-4 col-md-6">
+                <!--Post-1-->
+                <div class="post-card">
+                    <div class="post-card-image">
+                        <a href="{% url 'blog:single' pid=post.id %}">
+                            <img src="{{post.image.url}}" alt="">
+                        </a>
+                    </div>
+                    <div class="post-card-content">
+                        {% for cat in post.category.all %}
+                        <a href="{% url 'blog:category' cat_name=cat.name %}" class="categorie">{{cat}}</a>
+                        {% endfor %}
+                        <h5>
+                            <a href="{% url 'blog:single' pid=post.id %}">{{post.title}}</a>
+                        </h5>
+                        <p>
+                            {{post.content|truncatechars:250|safe}}
+                        </p>
+                        <div class="post-card-info">
+                            <ul class="list-inline">
+                                <li>
+                                    
+                                        <img src="{% static 'img/author/1.jpg' %}" alt="">
+                                    
+                                </li>
+                                <li>
+                                     محمد حسین اسناوندی
+                                </li>
+                                <li class="dot"></li>
+                                <li>{{post.published_date|naturaltime}}</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <!--/-->
+            </div>
+            {% endfor %}
