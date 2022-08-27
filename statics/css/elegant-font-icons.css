@@ -1,13 +1,22 @@
-@font-face {
+/* @font-face {
     font-family: eleganticons;
     src: url(../fonts/ElegantIcons.eot);
     src: url(../fonts/ElegantIcons.eot?#iefix) format('embedded-opentype'), url(../fonts/ElegantIcons.woff) format('woff'), url(../fonts/ElegantIcons.ttf) format('truetype'), url(../fonts/ElegantIcons.svg#ElegantIcons) format('svg');
     font-weight: 400;
     font-style: normal
-}
-
+} */
+@font-face {
+    font-family: Vazir;
+    font-style: normal;
+    font-weight: normal;
+    src: url('../fonts/Vazir.eot');
+    src: url('../fonts/Vazir.eot?#iefix') format('embedded-opentype'), 
+    url('../fonts/Vazir.woff2') format('woff2'), 
+    url('../fonts/Vazir.woff') format('woff'), 
+    url('../fonts/Vazir.ttf') format('truetype');
+   }
 [data-icon]:before {
-    font-family: eleganticons;
+    font-family: 'Vazir', Arial, sans-serif;
     content: attr(data-icon);
     speak: none;
     font-weight: 400;
@@ -378,7 +387,7 @@
 .icon_percent_alt,
 .icon_globe_alt,
 .icon_clipboard {
-    font-family: eleganticons;
+    font-family: 'Vazir', Arial, sans-serif;
     speak: none;
     font-style: normal;
     font-weight: 400;
