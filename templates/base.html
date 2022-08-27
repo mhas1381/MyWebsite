@@ -16,7 +16,8 @@
 
     <!-- Font Google -->
     <link href="https://fonts.googleapis.com/css?family=Muli:300,400,500,600,700,800,900&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@200;300;400;500;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@200;300;400;500;700;800;900&display=swap"
+        rel="stylesheet">
 
     <!-- CSS Plugins -->
     <link rel="stylesheet" href="{% static 'css/all.css' %}">
@@ -64,14 +65,14 @@
                         <a class="nav-link" href="{% url 'website:contact' %}">ارتباط با من</a>
                     </li>
                     <li class="nav-item">
-                        <a class='nav-link' href=""></a>
+                        <a  class='nav-link' href=""></a>
                     </li>
-
-                    <li class="nav-item">
-                        <a class='nav-link' href=""></a>
-                    </li>
+                
+                <li class="nav-item">
+                    <a  class='nav-link' href=""></a>
+                </li>
                     {% if request.user.is_authenticated %}
-                    <li class="nav-item">
+                    <li class="nav-item"> 
                         <a href="#" class="nav-link">{{request.user.username}}</a>
                     </li>
                     <li class="nav-item">
@@ -91,7 +92,7 @@
                 <div class="theme-switch-wrapper">
                     <label class="theme-switch" for="checkbox">
                         <input type="checkbox" id="checkbox" />
-
+                        
                     </label>
                 </div>
 
@@ -144,10 +145,10 @@
                     <p> اولین نفری باشید که از مطالب من با خبر میشوید </p>
                 </div>
                 <form action="{% url 'website:newsletter' %}" class="newslettre-form" method="post">
-
+                    
                     <div class="form-flex">
                         <div class="form-group">
-                            {% csrf_token %}
+                    {% csrf_token %}
                             <input type="email" name="email" class="form-control" placeholder="ایمیل خود را وارد کنید"
                                 required="required">
                         </div>
