@@ -23,3 +23,6 @@ def newsletter_view(request):
             return HttpResponseRedirect('/')
         else:
             return HttpResponseRedirect('/')
+
+def handle_not_found(request , exception):
+    return render(request,'page404.html')

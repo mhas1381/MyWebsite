@@ -6,9 +6,9 @@ from MyWebsite.settings import *
 SECRET_KEY = 'django-insecure-!yt55dq)xfo0kso+8qcw_0*&amr$yln$%e^@_8i(kcjelrz*-e'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 X_FRAME_OPTIONS = "SAMEORIGIN"
 
@@ -25,3 +25,5 @@ MEDIA_ROOT = BASE_DIR / 'media'
 STATICFILES_DIRS = [
     BASE_DIR / "statics",
 ]
+#site framework
+SITE_ID = 2
