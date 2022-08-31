@@ -8,7 +8,7 @@ SECRET_KEY = 'django-insecure-!yt55dq)xfo0kso+8qcw_0*&amr$yln$%e^@_8i(kcjelrz*-e
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 #site framework
 SITE_ID = 2
