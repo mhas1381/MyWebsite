@@ -55,6 +55,7 @@ python manage.py runserver 0.0.0.0:8000 --settings=mysite.setting.dev
 production settings
 ```Shell
 python manage.py runserver 0.0.0.0:8000 --settings=mysite.setting.prod
+```
 ### Project Model Schema :
 this is the model schema have been used in this project:
 ![drawSQL-export-2021-08-23_23_26](https://s24.picofile.com/file/8452681742/130503854_cefc63a6_1466_4164_825a_9f313d521059.png)
