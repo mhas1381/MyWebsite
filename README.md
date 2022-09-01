@@ -10,7 +10,7 @@ After downloading the project, make sure to create a virtual enviroment and  ins
 Clone the project. This will download the GitHub respository files onto your local machine.
 
 ```Shell
-git clone https://github.com/alibigdeli/mysite.git
+git clone https://github.com/mhas1381/MyWebsite.git
 ```
 installing virtual enviroment and activating:
 ```Shell
